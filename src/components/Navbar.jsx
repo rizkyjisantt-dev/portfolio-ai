@@ -27,6 +27,19 @@ const Navbar = () => {
 
   const navLinks = ['Home', 'About', 'Skills', 'Experience', 'Projects', 'Organization & Volunteer', 'Publications', 'Contact'];
 
+  // Smooth scroll handler for mobile links to prevent rapid unmount cancellation
+  const handleMobileLinkClick = (e, href) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -49,7 +62,7 @@ const Navbar = () => {
           {navLinks.map((link) => {
             let href = '';
             if (link === 'Home') href = '#home';
-            else if (link === 'Organization & Volunteer') href = '#organization-volunteer';
+            else if (link === 'Organization & Volunteer') href = '#organization';
             else href = `#${link.toLowerCase()}`;
             return (
               <a key={link} href={href} className="relative group cursor-pointer block">
@@ -92,13 +105,13 @@ const Navbar = () => {
               {navLinks.map((link, idx) => {
                 let href = '';
                 if (link === 'Home') href = '#home';
-                else if (link === 'Organization & Volunteer') href = '#organization-volunteer';
+                else if (link === 'Organization & Volunteer') href = '#organization';
                 else href = `#${link.toLowerCase()}`;
                 return (
                   <motion.a
                     key={link}
                     href={href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => handleMobileLinkClick(e, href)}
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: idx * 0.04, duration: 0.3, ease: 'easeOut' }}
