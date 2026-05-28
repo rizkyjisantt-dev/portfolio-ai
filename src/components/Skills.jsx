@@ -37,7 +37,7 @@ const Skills = () => {
       title: "Backend Development",
       icon: <Terminal className="w-6 h-6" />,
       color: "#4ade80",
-      skills: ["PHP", "Node.js", "Laravel", "Django", "Flask"]
+      skills: ["Python", "PHP", "Node.js", "Laravel", "Django", "Flask"]
     },
     {
       title: "Database Systems",

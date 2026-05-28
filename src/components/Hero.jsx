@@ -112,11 +112,13 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto px-6 w-full z-10 flex flex-col items-center text-center mt-[-5vh]">
-        <div ref={textRef} className="space-y-8 w-full flex flex-col items-center">
+      <div className="max-w-7xl mx-auto px-6 w-full z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-24 pb-16 lg:pt-32 lg:pb-24">
+        
+        {/* Left Column: Intro Text */}
+        <div ref={textRef} className="lg:col-span-7 space-y-8 w-full flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="hero-anim relative">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-space leading-tight text-white tracking-tight pb-4 drop-shadow-2xl">
-              Hi, I'm <br className="hidden md:block" />
+              Hi, I'm <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-white to-accent-purple inline-block" style={{ filter: 'drop-shadow(0 0 20px rgba(123,47,247,0.3))' }}>
                 Mochammad Rizki
               </span>
@@ -124,8 +126,8 @@ const Hero = () => {
           </div>
 
           {/* Animated Role Text */}
-          <div className="hero-anim h-20 md:h-24 flex items-center justify-center relative w-full overflow-visible">
-            <h3 className="text-3xl md:text-5xl font-semibold text-gray-300 w-full relative h-full flex justify-center items-center">
+          <div className="hero-anim h-20 md:h-24 flex items-center justify-center lg:justify-start relative w-full overflow-visible">
+            <h3 className="text-3xl md:text-5xl font-semibold text-gray-300 w-full relative h-full flex justify-center lg:justify-start items-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentRole}
@@ -133,7 +135,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
                   exit={{ opacity: 0, y: -25, filter: 'blur(10px)', scale: 1.1 }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-neon-cyan whitespace-nowrap py-4 px-2"
+                  className="absolute text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-neon-cyan whitespace-nowrap py-4 lg:px-0 px-2"
                   style={{ textShadow: '0 0 30px rgba(123, 47, 247, 0.5)' }}
                 >
                   {roles[currentRole]}
@@ -143,12 +145,75 @@ const Hero = () => {
           </div>
 
           <div className="hero-anim">
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed pt-4 font-light">
+            <p className="text-gray-400 max-w-2xl lg:mx-0 mx-auto text-lg md:text-xl leading-relaxed pt-4 font-light">
               Bachelor of Informatics Engineering | Fast Learning & Flexible <br className="hidden md:block" />
               Open to Entry-Level Positions in Various Fields
             </p>
           </div>
         </div>
+
+        {/* Right Column: Cyberpunk Logo Visual */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+          className="lg:col-span-5 flex justify-center items-center relative w-full max-w-[360px] lg:max-w-none mx-auto order-first lg:order-none"
+        >
+          {/* Outer rotating/pulsing neon glow ring */}
+          <motion.div
+            animate={{
+              rotate: 360,
+              scale: [1, 1.04, 1],
+            }}
+            transition={{
+              rotate: { repeat: Infinity, duration: 25, ease: "linear" },
+              scale: { repeat: Infinity, duration: 6, ease: "easeInOut" }
+            }}
+            className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-neon-cyan via-accent-purple to-pink-500 opacity-25 blur-[20px] pointer-events-none"
+          />
+
+          {/* Glassmorphic Cyber Border Wrapper */}
+          <div className="relative p-2.5 rounded-3xl bg-[#0B1120]/60 border border-white/10 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,245,255,0.15)] overflow-hidden group">
+            {/* Dynamic scanned lighting light effect */}
+            <motion.div
+              animate={{
+                top: ['-100%', '200%']
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 4,
+                ease: "linear"
+              }}
+              className="absolute left-0 w-full h-[50%] bg-gradient-to-b from-transparent via-neon-cyan/20 to-transparent pointer-events-none z-10"
+            />
+            
+            {/* Interactive hover scale image */}
+            <motion.img
+              src="/logo.png"
+              alt="Rizky Jisantt Dev Logo"
+              className="w-full max-w-[280px] md:max-w-[320px] lg:max-w-[360px] aspect-square object-cover rounded-2xl relative z-10"
+              whileHover={{
+                scale: 1.04,
+                filter: "brightness(1.15) contrast(1.05) drop-shadow(0 0 15px rgba(0, 245, 255, 0.5))"
+              }}
+              style={{
+                boxShadow: 'inset 0 0 20px rgba(0, 245, 255, 0.2)'
+              }}
+              animate={{
+                y: [-12, 12, -12]
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 6,
+                ease: "easeInOut"
+              }}
+            />
+          </div>
+
+          {/* Ambient shadow glow spot */}
+          <div className="absolute -bottom-8 w-4/5 h-6 bg-gradient-to-r from-neon-cyan/30 to-accent-purple/30 blur-[20px] rounded-full opacity-60 animate-pulse pointer-events-none" />
+        </motion.div>
+        
       </div>
 
       {/* Cinematic bottom gradient fade to blend with next section */}
