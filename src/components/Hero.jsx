@@ -113,14 +113,14 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 w-full z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-24 pb-16 lg:pt-32 lg:pb-24">
-        
+
         {/* Left Column: Intro Text */}
         <div ref={textRef} className="lg:col-span-7 space-y-8 w-full flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="hero-anim relative">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-space leading-tight text-white tracking-tight pb-4 drop-shadow-2xl">
               Hi, I'm <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-white to-accent-purple inline-block" style={{ filter: 'drop-shadow(0 0 20px rgba(123,47,247,0.3))' }}>
-                Mochammad Rizki
+                Mochammad Rizki Aji Santoso
               </span>
             </h1>
           </div>
@@ -161,14 +161,14 @@ const Hero = () => {
         >
           {/* Card Outer Glow Border Container (Layered card look) */}
           <div className="relative w-full rounded-[30px] p-[1.5px] bg-gradient-to-br from-neon-cyan/40 via-white/5 to-accent-purple/40 shadow-[0_20px_50px_rgba(5,8,22,0.7)]">
-            
+
             {/* Cyber-tech container */}
             <div className="relative w-full rounded-[28px] bg-secondary/85 backdrop-blur-2xl p-6 border border-white/5 overflow-hidden flex flex-col items-stretch">
-              
+
               {/* Card Static Background Details (HUD grid line / radial shine) */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,245,255,0.06)_0%,transparent_75%)] pointer-events-none" />
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:16px_16px] opacity-40 pointer-events-none" />
-              
+
               {/* Decorative corner accents on the overall card */}
               {/* Top Left Bracket */}
               <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-neon-cyan/40 pointer-events-none" />
@@ -212,7 +212,7 @@ const Hero = () => {
 
               {/* Main Static Profile Image Section */}
               <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-neon-cyan/30 via-white/5 to-accent-purple/30 z-10">
-                
+
                 {/* Tech Bracket corners directly around image frame */}
                 <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-neon-cyan pointer-events-none" />
                 <div className="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-accent-purple pointer-events-none" />
@@ -247,10 +247,10 @@ const Hero = () => {
                     IDENTITY CARD
                   </div>
                   <h4 className="text-xl font-space font-bold text-white tracking-tight leading-none">
-                    Mochammad Rizki
+                    Rizky Jisantt
                   </h4>
                   <p className="text-[10px] font-mono text-gray-400 tracking-wider font-light pt-0.5">
-                    AI / DATA SCIENCE / INF.ENG
+                    AI / DATA SCIENCE / WEB DEVELOPMENT / INF.ENG
                   </p>
                 </div>
 
@@ -288,7 +288,7 @@ const Hero = () => {
           {/* Underlay Subtle static accent shadow glow */}
           <div className="absolute -bottom-6 w-[80%] h-6 bg-gradient-to-r from-neon-cyan/20 to-accent-purple/20 blur-[25px] rounded-full pointer-events-none select-none opacity-80" />
         </motion.div>
-        
+
       </div>
 
       {/* Cinematic bottom gradient fade to blend with next section */}
