@@ -152,66 +152,141 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Column: Cyberpunk Logo Visual */}
+        {/* Right Column: Cyberpunk Brand Identity Card Visual */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="lg:col-span-5 flex justify-center items-center relative w-full max-w-[360px] lg:max-w-none mx-auto order-first lg:order-none"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+          className="lg:col-span-5 flex justify-center items-center relative w-full max-w-[380px] lg:max-w-[400px] mx-auto order-first lg:order-none px-4 lg:px-0"
         >
-          {/* Outer rotating/pulsing neon glow ring */}
-          <motion.div
-            animate={{
-              rotate: 360,
-              scale: [1, 1.04, 1],
-            }}
-            transition={{
-              rotate: { repeat: Infinity, duration: 25, ease: "linear" },
-              scale: { repeat: Infinity, duration: 6, ease: "easeInOut" }
-            }}
-            className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-neon-cyan via-accent-purple to-pink-500 opacity-25 blur-[20px] pointer-events-none"
-          />
-
-          {/* Glassmorphic Cyber Border Wrapper */}
-          <div className="relative p-2.5 rounded-3xl bg-[#0B1120]/60 border border-white/10 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,245,255,0.15)] overflow-hidden group">
-            {/* Dynamic scanned lighting light effect */}
-            <motion.div
-              animate={{
-                top: ['-100%', '200%']
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-                ease: "linear"
-              }}
-              className="absolute left-0 w-full h-[50%] bg-gradient-to-b from-transparent via-neon-cyan/20 to-transparent pointer-events-none z-10"
-            />
+          {/* Card Outer Glow Border Container (Layered card look) */}
+          <div className="relative w-full rounded-[30px] p-[1.5px] bg-gradient-to-br from-neon-cyan/40 via-white/5 to-accent-purple/40 shadow-[0_20px_50px_rgba(5,8,22,0.7)]">
             
-            {/* Interactive hover scale image */}
-            <motion.img
-              src="/logo.png"
-              alt="Rizky Jisantt Dev Logo"
-              className="w-full max-w-[280px] md:max-w-[320px] lg:max-w-[360px] aspect-square object-cover rounded-2xl relative z-10"
-              whileHover={{
-                scale: 1.04,
-                filter: "brightness(1.15) contrast(1.05) drop-shadow(0 0 15px rgba(0, 245, 255, 0.5))"
-              }}
-              style={{
-                boxShadow: 'inset 0 0 20px rgba(0, 245, 255, 0.2)'
-              }}
-              animate={{
-                y: [-12, 12, -12]
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 6,
-                ease: "easeInOut"
-              }}
-            />
+            {/* Cyber-tech container */}
+            <div className="relative w-full rounded-[28px] bg-secondary/85 backdrop-blur-2xl p-6 border border-white/5 overflow-hidden flex flex-col items-stretch">
+              
+              {/* Card Static Background Details (HUD grid line / radial shine) */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,245,255,0.06)_0%,transparent_75%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:16px_16px] opacity-40 pointer-events-none" />
+              
+              {/* Decorative corner accents on the overall card */}
+              {/* Top Left Bracket */}
+              <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-neon-cyan/40 pointer-events-none" />
+              <div className="absolute top-3 left-3 w-1.5 h-1.5 bg-neon-cyan/50 pointer-events-none" />
+              {/* Top Right Bracket */}
+              <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-accent-purple/40 pointer-events-none" />
+              <div className="absolute top-4 right-8 text-[8px] font-mono text-neon-cyan/60 tracking-wider pointer-events-none select-none">
+                RX-903
+              </div>
+              {/* Bottom Left Bracket */}
+              <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-accent-purple/40 pointer-events-none" />
+              {/* Bottom Right Bracket */}
+              <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-neon-cyan/40 pointer-events-none" />
+
+              {/* Card Header Section: Digital contact chip & System Status */}
+              <div className="flex justify-between items-center mb-5 relative z-10">
+                {/* Simulated EMV secure microchip */}
+                <div className="w-9 h-7 bg-gradient-to-br from-neon-cyan/20 to-accent-purple/20 border border-neon-cyan/40 rounded flex flex-col justify-between p-[4px] relative shadow-[inset_0_0_8px_rgba(0,245,255,0.2)]">
+                  <div className="flex justify-between h-[30%]">
+                    <span className="w-[1.5px] bg-neon-cyan/40 rounded-full" />
+                    <span className="w-[1.5px] bg-neon-cyan/40 rounded-full" />
+                    <span className="w-[1.5px] bg-neon-cyan/40 rounded-full" />
+                  </div>
+                  <div className="absolute inset-x-[8px] inset-y-[4px] border-l border-r border-neon-cyan/40" />
+                  <div className="flex justify-between h-[30%]">
+                    <span className="w-[1.5px] bg-neon-cyan/40 rounded-full" />
+                    <span className="w-[1.5px] bg-neon-cyan/40 rounded-full" />
+                    <span className="w-[1.5px] bg-neon-cyan/40 rounded-full" />
+                  </div>
+                </div>
+
+                {/* Cybertech branding & online dot */}
+                <div className="text-right flex flex-col justify-center">
+                  <div className="flex items-center justify-end gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan shadow-[0_0_6px_#00F5FF]" />
+                    <span className="text-[9px] font-mono text-neon-cyan tracking-wider font-semibold">SECURE NODE // ONLINE</span>
+                  </div>
+                  <span className="text-[7px] font-mono text-gray-500 uppercase tracking-widest mt-0.5">AUTH LEVEL: 04</span>
+                </div>
+              </div>
+
+              {/* Main Static Profile Image Section */}
+              <div className="relative rounded-2xl p-[1px] bg-gradient-to-br from-neon-cyan/30 via-white/5 to-accent-purple/30 z-10">
+                
+                {/* Tech Bracket corners directly around image frame */}
+                <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-neon-cyan pointer-events-none" />
+                <div className="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-accent-purple pointer-events-none" />
+                <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b border-l border-accent-purple pointer-events-none" />
+                <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-neon-cyan pointer-events-none" />
+
+                <div className="rounded-[15px] overflow-hidden bg-[#050816]/90 border border-white/5 p-1.5">
+                  <img
+                    src="/logo.png"
+                    alt="Rizky Jisantt Dev Logo"
+                    className="w-full aspect-square object-cover rounded-xl border border-white/5 pointer-events-none select-none filter brightness-[1.05] contrast-[1.02]"
+                    style={{
+                      boxShadow: 'inset 0 0 15px rgba(0, 245, 255, 0.15)'
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Fine technical dividing line with a notch */}
+              <div className="relative my-5 z-10 flex items-center">
+                <div className="flex-grow h-[1px] bg-gradient-to-r from-neon-cyan/40 to-transparent" />
+                <div className="w-3 h-1.5 bg-neon-cyan/20 border border-neon-cyan/40 rounded-[2px] mx-1 flex items-center justify-center">
+                  <div className="w-1 h-0.5 bg-neon-cyan" />
+                </div>
+                <div className="flex-grow h-[1px] bg-gradient-to-r from-transparent to-accent-purple/40" />
+              </div>
+
+              {/* Developer Metadata & Professional ID Details */}
+              <div className="relative z-10 flex justify-between items-end">
+                <div className="space-y-1">
+                  <div className="text-[10px] font-mono text-neon-cyan/80 tracking-widest uppercase font-semibold">
+                    IDENTITY CARD
+                  </div>
+                  <h4 className="text-xl font-space font-bold text-white tracking-tight leading-none">
+                    Mochammad Rizki
+                  </h4>
+                  <p className="text-[10px] font-mono text-gray-400 tracking-wider font-light pt-0.5">
+                    AI / DATA SCIENCE / INF.ENG
+                  </p>
+                </div>
+
+                {/* Cyber Barcode graphic */}
+                <div className="flex flex-col items-end gap-1">
+                  {/* Decorative Barcode */}
+                  <div className="flex gap-[1.5px] items-stretch h-[18px] opacity-75">
+                    <span className="w-[1px] bg-white" />
+                    <span className="w-[2px] bg-white" />
+                    <span className="w-[1px] bg-white" />
+                    <span className="w-[3px] bg-white" />
+                    <span className="w-[1px] bg-white" />
+                    <span className="w-[1px] bg-white" />
+                    <span className="w-[2px] bg-white" />
+                    <span className="w-[1px] bg-white" />
+                    <span className="w-[3px] bg-white" />
+                    <span className="w-[1px] bg-white" />
+                    <span className="w-[1px] bg-white" />
+                    <span className="w-[2px] bg-white" />
+                    <span className="w-[1px] bg-white" />
+                  </div>
+                  <span className="text-[6px] font-mono text-gray-500 tracking-[0.2em] leading-none select-none">*00245255*</span>
+                </div>
+              </div>
+
+              {/* Tiny footer tech data block */}
+              <div className="mt-4 pt-3 border-t border-white/5 flex justify-between items-center text-[7px] font-mono text-gray-600 relative z-10">
+                <span>SYSTEM REGISTRY: ID-2026.SYS</span>
+                <span>CHASSIS PORT: COM_04</span>
+              </div>
+
+            </div>
           </div>
 
-          {/* Ambient shadow glow spot */}
-          <div className="absolute -bottom-8 w-4/5 h-6 bg-gradient-to-r from-neon-cyan/30 to-accent-purple/30 blur-[20px] rounded-full opacity-60 animate-pulse pointer-events-none" />
+          {/* Underlay Subtle static accent shadow glow */}
+          <div className="absolute -bottom-6 w-[80%] h-6 bg-gradient-to-r from-neon-cyan/20 to-accent-purple/20 blur-[25px] rounded-full pointer-events-none select-none opacity-80" />
         </motion.div>
         
       </div>
