@@ -32,7 +32,7 @@ function App() {
   }, []);
 
   return (
-    <div className="relative w-full h-full font-sans bg-primary">
+    <div className="relative w-full h-full font-sans">
       {/* Custom Cursor */}
       <div 
         ref={cursorRef} 

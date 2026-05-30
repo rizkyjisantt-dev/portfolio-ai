@@ -11,6 +11,11 @@ export default {
         secondary: '#0B1120',
         'neon-cyan': '#00F5FF',
         'accent-purple': '#7B2FF7',
+        gray: {
+          300: '#B8C0CC',
+          400: '#B8C0CC',
+          500: '#8E9AA8',
+        }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

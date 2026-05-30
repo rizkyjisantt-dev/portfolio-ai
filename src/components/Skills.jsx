@@ -84,9 +84,7 @@ const Skills = () => {
 
   return (
     <section className="py-28 relative z-10 overflow-hidden" id="skills">
-      {/* Decorative background lights */}
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full bg-neon-cyan/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] rounded-full bg-accent-purple/5 blur-[120px] pointer-events-none" />
+
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}

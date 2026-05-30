@@ -206,9 +206,7 @@ const OrgVolunteer = () => {
 
   return (
     <section className="py-28 relative z-10 overflow-hidden" id="organization">
-      {/* Dynamic ambient lights */}
-      <div className="absolute top-1/3 right-0 w-[600px] h-[600px] rounded-full bg-accent-purple/5 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/3 left-0 w-[600px] h-[600px] rounded-full bg-pink-500/5 blur-[150px] pointer-events-none" />
+
 
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Title */}

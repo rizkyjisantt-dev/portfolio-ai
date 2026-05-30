@@ -43,8 +43,7 @@ const Publications = () => {
 
   return (
     <section className="py-28 relative z-10 overflow-hidden" id="publications">
-      {/* Dynamic ambient lights */}
-      <div className="absolute top-1/2 left-1/2 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-neon-cyan/5 blur-[160px] pointer-events-none" />
+
 
       <div className="max-w-5xl mx-auto px-6">
         {/* Section Header */}
