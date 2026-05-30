@@ -112,31 +112,33 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 w-full z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-24 pb-16 lg:pt-32 lg:pb-24">
+      <div className="max-w-7xl mx-auto px-6 w-full z-10 grid grid-cols-1 lg:grid-cols-[53fr_47fr] gap-12 lg:gap-16 items-center pt-24 pb-16 lg:pt-32 lg:pb-24">
 
         {/* Left Column: Intro Text */}
-        <div ref={textRef} className="lg:col-span-7 space-y-8 w-full flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div className="hero-anim relative">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-space leading-tight text-white tracking-tight pb-4 drop-shadow-2xl">
-              Hi, I'm <br className="hidden lg:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-white to-accent-purple inline-block" style={{ filter: 'drop-shadow(0 0 20px rgba(123,47,247,0.3))' }}>
-                Mochammad Rizki Aji Santoso
+        <div ref={textRef} className="w-full flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="hero-anim relative w-full flex flex-col gap-2 md:gap-3">
+            <span className="text-lg md:text-xl lg:text-2xl font-semibold font-space text-neon-cyan/95 uppercase tracking-[0.2em] drop-shadow-[0_0_20px_rgba(0,245,255,0.35)] block">
+              Hi, I'm
+            </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-space leading-[1.1] text-white tracking-tight drop-shadow-2xl">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-white to-accent-purple inline-block pb-1" style={{ filter: 'drop-shadow(0 0 20px rgba(123,47,247,0.3))' }}>
+                Mochammad Rizki <br /> Aji Santoso
               </span>
             </h1>
           </div>
 
           {/* Animated Role Text */}
-          <div className="hero-anim h-20 md:h-24 flex items-center justify-center lg:justify-start relative w-full overflow-visible">
-            <h3 className="text-3xl md:text-5xl font-semibold text-gray-300 w-full relative h-full flex justify-center lg:justify-start items-center">
+          <div className="hero-anim h-16 md:h-20 flex items-center justify-center lg:justify-start relative w-full overflow-visible mt-6 md:mt-8">
+            <h3 className="text-2xl md:text-4xl font-semibold text-gray-300 w-full relative h-full flex justify-center lg:justify-start items-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentRole}
-                  initial={{ opacity: 0, y: 25, filter: 'blur(10px)', scale: 0.9 }}
+                  initial={{ opacity: 0, y: 20, filter: 'blur(8px)', scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-                  exit={{ opacity: 0, y: -25, filter: 'blur(10px)', scale: 1.1 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-neon-cyan whitespace-nowrap py-4 lg:px-0 px-2"
-                  style={{ textShadow: '0 0 30px rgba(123, 47, 247, 0.5)' }}
+                  exit={{ opacity: 0, y: -20, filter: 'blur(8px)', scale: 1.05 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute text-transparent bg-clip-text bg-gradient-to-r from-accent-purple to-neon-cyan whitespace-nowrap py-2 lg:px-0 px-2"
+                  style={{ textShadow: '0 0 30px rgba(123, 47, 247, 0.4)' }}
                 >
                   {roles[currentRole]}
                 </motion.div>
@@ -144,8 +146,8 @@ const Hero = () => {
             </h3>
           </div>
 
-          <div className="hero-anim">
-            <p className="text-gray-400 max-w-2xl lg:mx-0 mx-auto text-lg md:text-xl leading-relaxed pt-4 font-light">
+          <div className="hero-anim mt-4 md:mt-6">
+            <p className="text-gray-400 max-w-2xl lg:mx-0 mx-auto text-base md:text-lg lg:text-xl leading-relaxed font-light">
               Bachelor of Informatics Engineering | Fast Learning & Flexible <br className="hidden md:block" />
               Open to Entry-Level Positions in Various Fields
             </p>
@@ -157,7 +159,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="lg:col-span-5 flex justify-center items-center relative w-full max-w-[380px] lg:max-w-[400px] mx-auto order-first lg:order-none px-4 lg:px-0"
+          className="flex justify-center items-center relative w-full max-w-[380px] sm:max-w-[400px] lg:max-w-[450px] xl:max-w-[480px] mx-auto order-first lg:order-none px-4 lg:px-0"
         >
           {/* Card Outer Glow Border Container (Layered card look) */}
           <div className="relative w-full rounded-[30px] p-[1.5px] bg-gradient-to-br from-neon-cyan/40 via-white/5 to-accent-purple/40 shadow-[0_20px_50px_rgba(5,8,22,0.7)]">
