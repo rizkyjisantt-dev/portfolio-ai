@@ -307,7 +307,7 @@ const Skills = () => {
                   </h4>
                 </div>
 
-                <div className="flex flex-wrap gap-2 mt-auto relative z-10">
+                <div className="flex flex-wrap gap-2 relative z-10">
                   {category.skills.map((skill, skillIdx) => (
                     <span 
                       key={skillIdx}
