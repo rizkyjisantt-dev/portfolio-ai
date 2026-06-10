@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layout, Terminal, Cpu, Database, Wrench, Briefcase, Globe, Brain, Network } from 'lucide-react';
+import { Layout, Terminal, Cpu, Database, Wrench, Briefcase, Globe, Brain, Network, BarChart3 } from 'lucide-react';
 
 const Skills = () => {
   // Core AI & Data Science skills (Highly featured)
@@ -22,6 +22,15 @@ const Skills = () => {
       icon: <Network className="w-7 h-7" />,
       color: "#ec4899", // Neon Pink/Rose
       skills: ["CNN", "KNN", "Naive Bayes", "SVM", "Decision Tree", "SVR", "K-Means", "PCA", "Ensemble Learning"]
+    },
+    visualization: {
+      title: "Visualization & Business Intelligence",
+      subtitle: "Analytical Dashboards & Reporting Platforms",
+      sector: "DECISION_SUPPORT",
+      node: "ACTIVE_NODE_03",
+      icon: <BarChart3 className="w-7 h-7" />,
+      color: "#7B2FF7", // Accent Purple
+      skills: ["Tableau", "Power BI"]
     }
   };
 
@@ -34,7 +43,7 @@ const Skills = () => {
       skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "Bootstrap"]
     },
     {
-      title: "Backend Development",
+      title: "Back-End Development",
       icon: <Terminal className="w-6 h-6" />,
       color: "#4ade80",
       skills: ["Python", "PHP", "Node.js", "Laravel", "Django", "Flask"]
@@ -114,7 +123,7 @@ const Skills = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Card 1: Libraries & Frameworks */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -221,6 +230,61 @@ const Skills = () => {
                 <div className="mt-8 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 font-mono tracking-wider">
                   <span>SECTOR: {aiSkills.models.sector}</span>
                   <span className="text-pink-400/70">{aiSkills.models.node}</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Visualization & Business Intelligence */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative group rounded-3xl p-[1px] overflow-hidden transition-all duration-500"
+            >
+              {/* Glowing animated background border */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-purple via-neon-cyan to-pink-500 rounded-3xl blur opacity-20 group-hover:opacity-80 transition duration-500 group-hover:duration-200" />
+              
+              <div className="relative h-full bg-[#0B1120]/90 backdrop-blur-xl p-8 rounded-3xl border border-white/5 flex flex-col justify-between">
+                {/* Inner radial gradient light */}
+                <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-accent-purple/10 blur-3xl opacity-50 group-hover:opacity-100 group-hover:bg-accent-purple/20 transition-all duration-500 pointer-events-none" />
+
+                <div>
+                  <div className="flex items-center gap-4 mb-8 relative z-10">
+                    <div className="p-3.5 rounded-2xl bg-accent-purple/10 border border-accent-purple/30 text-accent-purple shadow-[0_0_20px_rgba(123,47,247,0.2)] group-hover:shadow-[0_0_25px_rgba(123,47,247,0.4)] transition-all duration-500">
+                      {aiSkills.visualization.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-space font-bold text-white group-hover:text-accent-purple transition-colors">
+                        {aiSkills.visualization.title}
+                      </h4>
+                      <p className="text-xs text-accent-purple/70 font-mono mt-0.5">{aiSkills.visualization.subtitle}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2.5 relative z-10">
+                    {aiSkills.visualization.skills.map((skill, idx) => (
+                      <motion.span
+                        key={idx}
+                        whileHover={{ 
+                          scale: 1.05,
+                          borderColor: "rgba(123, 47, 247, 0.4)",
+                          boxShadow: "0 0 15px rgba(123, 47, 247, 0.2)",
+                          backgroundColor: "rgba(123, 47, 247, 0.08)",
+                          color: "#ffffff"
+                        }}
+                        className="px-3.5 py-2 text-sm font-medium rounded-xl bg-white/5 border border-white/10 text-gray-300 cursor-default transition-all duration-300 flex items-center gap-2"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-purple animate-pulse" />
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 font-mono tracking-wider">
+                  <span>SECTOR: {aiSkills.visualization.sector}</span>
+                  <span className="text-accent-purple/70">{aiSkills.visualization.node}</span>
                 </div>
               </div>
             </motion.div>
