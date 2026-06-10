@@ -1,46 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Layout, Terminal, Cpu, Database, Wrench, Briefcase, Globe, Brain, Network, BarChart3 } from 'lucide-react';
 
 const Skills = () => {
+  const [hoveredKey, setHoveredKey] = useState(null);
+
   // Core AI & Data Science skills (Highly featured)
   const aiSkills = {
-    libraries: {
-      title: "Libraries & Frameworks",
-      subtitle: "Primary Tools & Analytics Environments",
+    programming: {
+      title: "Programming & Libraries",
+      subtitle: "Primary Languages & Core Libraries",
       sector: "DATA_ENGINEERING",
       node: "ACTIVE_NODE_01",
       icon: <Brain className="w-7 h-7" />,
-      color: "#00F5FF", // Neon Cyan
-      skills: ["Python", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Matplotlib", "Seaborn", "Streamlit", "NLP"]
+      color: "#00F5FF",
+      gradientClass: "from-[#00F5FF] via-[#7B2FF7] to-[#ec4899]",
+      skills: ["Python", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Streamlit"]
     },
-    models: {
-      title: "Models & Methods",
-      subtitle: "Architectures, Algorithms & Deep Learning",
+    machineLearning: {
+      title: "Machine Learning",
+      subtitle: "Algorithms & Statistical Modeling",
       sector: "INTELLIGENCE_SYSTEMS",
       node: "ACTIVE_NODE_02",
       icon: <Network className="w-7 h-7" />,
-      color: "#ec4899", // Neon Pink/Rose
-      skills: ["CNN", "KNN", "Naive Bayes", "SVM", "Decision Tree", "SVR", "K-Means", "PCA", "Ensemble Learning"]
+      color: "#ec4899",
+      gradientClass: "from-[#ec4899] via-[#7B2FF7] to-[#00F5FF]",
+      skills: ["Linear Regression", "K-Nearest Neighbors (KNN)", "Naive Bayes", "Support Vector Machine (SVM)", "Decision Tree", "Random Forest", "Support Vector Regression (SVR)", "K-Means Clustering", "Principal Component Analysis (PCA)", "Ensemble Learning"]
+    },
+    deepLearning: {
+      title: "Deep Learning",
+      subtitle: "Neural Networks & Complex Models",
+      sector: "NEURAL_ARCHITECTURES",
+      node: "ACTIVE_NODE_03",
+      icon: <Cpu className="w-7 h-7" />,
+      color: "#fbbf24",
+      gradientClass: "from-[#fbbf24] via-[#ec4899] to-[#7B2FF7]",
+      skills: ["Convolutional Neural Network (CNN)", "Multilayer Perceptron (MLP)", "Recurrent Neural Network (RNN)", "Long Short-Term Memory (LSTM)", "DenseNet", "ResNet", "Generative Adversarial Network (GAN)"]
+    },
+    nlp: {
+      title: "Natural Language Processing",
+      subtitle: "Text Processing & Semantic Analysis",
+      sector: "COGNITIVE_COMPUTING",
+      node: "ACTIVE_NODE_04",
+      icon: <Globe className="w-7 h-7" />,
+      color: "#4ade80",
+      gradientClass: "from-[#4ade80] via-[#00F5FF] to-[#7B2FF7]",
+      skills: ["Natural Language Processing (NLP)", "Bag of Words (BoW)", "TF-IDF", "N-Gram", "Word2Vec"]
     },
     visualization: {
-      title: "Visualization & Business Intelligence",
-      subtitle: "Analytical Dashboards & Reporting Platforms",
+      title: "Data Visualization & Business Intelligence",
+      subtitle: "Analytical Dashboards & Business Insights",
       sector: "DECISION_SUPPORT",
-      node: "ACTIVE_NODE_03",
+      node: "ACTIVE_NODE_05",
       icon: <BarChart3 className="w-7 h-7" />,
-      color: "#7B2FF7", // Accent Purple
-      skills: ["Tableau", "Power BI"]
+      color: "#7B2FF7",
+      gradientClass: "from-[#7B2FF7] via-[#00F5FF] to-[#ec4899]",
+      skills: ["Matplotlib", "Seaborn", "Tableau", "Power BI"]
     }
   };
 
   // General software engineering skills
   const standardSkillCategories = [
     {
-      title: "Frontend Development",
+      title: "Front-End Development",
       icon: <Layout className="w-6 h-6" />,
       color: "#00F5FF",
-      skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "Bootstrap"]
+      skills: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Bootstrap"]
     },
     {
       title: "Back-End Development",
@@ -49,19 +74,19 @@ const Skills = () => {
       skills: ["Python", "PHP", "Node.js", "Laravel", "Django", "Flask"]
     },
     {
-      title: "Database Systems",
+      title: "Database",
       icon: <Database className="w-6 h-6" />,
       color: "#fbbf24",
-      skills: ["MySQL", "PostgreSQL"]
+      skills: ["PostgreSQL", "MySQL"]
     },
     {
       title: "Tools & Platforms",
       icon: <Wrench className="w-6 h-6" />,
       color: "#7B2FF7",
-      skills: ["Git", "GitHub", "VS Code", "Google Colab", "Antigravity", "Figma", "Canva", "CapCut"]
+      skills: ["Git", "GitHub", "VS Code", "Google Colab", "Antigravity", "Figma", "Canva", "CapCut", "Picsart"]
     },
     {
-      title: "CMS & Platforms",
+      title: "CMS",
       icon: <Globe className="w-6 h-6" />,
       color: "#38bdf8",
       skills: ["WordPress", "Blogger"]
@@ -70,7 +95,7 @@ const Skills = () => {
       title: "Productivity Tools",
       icon: <Briefcase className="w-6 h-6" />,
       color: "#facc15",
-      skills: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint"]
+      skills: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint", "Other productivity and collaboration tools"]
     }
   ];
 
@@ -124,170 +149,107 @@ const Skills = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Card 1: Libraries & Frameworks */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative group rounded-3xl p-[1px] overflow-hidden transition-all duration-500"
-            >
-              {/* Glowing animated background border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-cyan via-accent-purple to-pink-500 rounded-3xl blur opacity-20 group-hover:opacity-80 transition duration-500 group-hover:duration-200" />
-              
-              <div className="relative h-full bg-[#0B1120]/90 backdrop-blur-xl p-8 rounded-3xl border border-white/5 flex flex-col justify-between">
-                {/* Inner radial gradient light */}
-                <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-neon-cyan/10 blur-3xl opacity-50 group-hover:opacity-100 group-hover:bg-neon-cyan/20 transition-all duration-500 pointer-events-none" />
+            {Object.entries(aiSkills).map(([key, category], index) => {
+              const isHovered = hoveredKey === key;
+              return (
+                <motion.div
+                  key={key}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  onMouseEnter={() => setHoveredKey(key)}
+                  onMouseLeave={() => setHoveredKey(null)}
+                  className="relative group rounded-3xl p-[1px] overflow-hidden transition-all duration-500"
+                >
+                  {/* Glowing animated background border */}
+                  <div 
+                    className={`absolute -inset-0.5 bg-gradient-to-r ${category.gradientClass} rounded-3xl blur transition-all duration-500`}
+                    style={{
+                      opacity: isHovered ? 0.8 : 0.2
+                    }}
+                  />
+                  
+                  <div className="relative h-full bg-[#0B1120]/90 backdrop-blur-xl p-8 rounded-3xl border border-white/5 flex flex-col justify-between">
+                    {/* Inner radial gradient light */}
+                    <div 
+                      className="absolute -top-10 -right-10 w-48 h-48 rounded-full blur-3xl transition-all duration-500 pointer-events-none"
+                      style={{
+                        backgroundColor: isHovered ? `${category.color}33` : `${category.color}1a`
+                      }}
+                    />
 
-                <div>
-                  <div className="flex items-center gap-4 mb-8 relative z-10">
-                    <div className="p-3.5 rounded-2xl bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan shadow-[0_0_20px_rgba(0,245,255,0.2)] group-hover:shadow-[0_0_25px_rgba(0,245,255,0.4)] transition-all duration-500">
-                      {aiSkills.libraries.icon}
-                    </div>
                     <div>
-                      <h4 className="text-xl font-space font-bold text-white group-hover:text-neon-cyan transition-colors">
-                        {aiSkills.libraries.title}
-                      </h4>
-                      <p className="text-xs text-neon-cyan/70 font-mono mt-0.5">{aiSkills.libraries.subtitle}</p>
-                    </div>
-                  </div>
+                      <div className="flex items-center gap-4 mb-8 relative z-10">
+                        <div 
+                          className="p-3.5 rounded-2xl border transition-all duration-500"
+                          style={{
+                            backgroundColor: `${category.color}1a`,
+                            borderColor: isHovered ? `${category.color}66` : `${category.color}33`,
+                            color: category.color,
+                            boxShadow: isHovered ? `0 0 25px ${category.color}66` : `0 0 20px ${category.color}33`
+                          }}
+                        >
+                          {category.icon}
+                        </div>
+                        <div>
+                          <h4 
+                            className="text-xl font-space font-bold text-white transition-colors duration-300"
+                            style={{
+                              color: isHovered ? category.color : '#ffffff'
+                            }}
+                          >
+                            {category.title}
+                          </h4>
+                          <p 
+                            className="text-xs font-mono mt-0.5 transition-colors duration-300"
+                            style={{
+                              color: isHovered ? '#ffffff' : `${category.color}b3`
+                            }}
+                          >
+                            {category.subtitle}
+                          </p>
+                        </div>
+                      </div>
 
-                  <div className="flex flex-wrap gap-2.5 relative z-10">
-                    {aiSkills.libraries.skills.map((skill, idx) => (
-                      <motion.span
-                        key={idx}
-                        whileHover={{ 
-                          scale: 1.05,
-                          borderColor: "rgba(0, 245, 255, 0.4)",
-                          boxShadow: "0 0 15px rgba(0, 245, 255, 0.2)",
-                          backgroundColor: "rgba(0, 245, 255, 0.08)",
-                          color: "#ffffff"
+                      <div className="flex flex-wrap gap-2.5 relative z-10">
+                        {category.skills.map((skill, idx) => (
+                          <motion.span
+                            key={idx}
+                            whileHover={{ 
+                              scale: 1.05,
+                              borderColor: `${category.color}66`,
+                              boxShadow: `0 0 15px ${category.color}33`,
+                              backgroundColor: `${category.color}14`,
+                              color: "#ffffff"
+                            }}
+                            className="px-3.5 py-2 text-sm font-medium rounded-xl bg-white/5 border border-white/10 text-gray-300 cursor-default transition-all duration-300 flex items-center gap-2"
+                          >
+                            <span 
+                              className="w-1.5 h-1.5 rounded-full animate-pulse" 
+                              style={{ backgroundColor: category.color }}
+                            />
+                            {skill}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-8 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 font-mono tracking-wider">
+                      <span>SECTOR: {category.sector}</span>
+                      <span 
+                        className="transition-colors duration-300"
+                        style={{
+                          color: isHovered ? category.color : `${category.color}b3`
                         }}
-                        className="px-3.5 py-2 text-sm font-medium rounded-xl bg-white/5 border border-white/10 text-gray-300 cursor-default transition-all duration-300 flex items-center gap-2"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan animate-pulse" />
-                        {skill}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 font-mono tracking-wider">
-                  <span>SECTOR: {aiSkills.libraries.sector}</span>
-                  <span className="text-neon-cyan/70">{aiSkills.libraries.node}</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Card 2: ML Models & Methods */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative group rounded-3xl p-[1px] overflow-hidden transition-all duration-500"
-            >
-              {/* Glowing animated background border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 via-accent-purple to-neon-cyan rounded-3xl blur opacity-20 group-hover:opacity-80 transition duration-500 group-hover:duration-200" />
-              
-              <div className="relative h-full bg-[#0B1120]/90 backdrop-blur-xl p-8 rounded-3xl border border-white/5 flex flex-col justify-between">
-                {/* Inner radial gradient light */}
-                <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-pink-500/10 blur-3xl opacity-50 group-hover:opacity-100 group-hover:bg-pink-500/20 transition-all duration-500 pointer-events-none" />
-
-                <div>
-                  <div className="flex items-center gap-4 mb-8 relative z-10">
-                    <div className="p-3.5 rounded-2xl bg-pink-500/10 border border-pink-500/30 text-pink-400 shadow-[0_0_20px_rgba(236,72,153,0.2)] group-hover:shadow-[0_0_25px_rgba(236,72,153,0.4)] transition-all duration-500">
-                      {aiSkills.models.icon}
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-space font-bold text-white group-hover:text-pink-400 transition-colors">
-                        {aiSkills.models.title}
-                      </h4>
-                      <p className="text-xs text-pink-400/70 font-mono mt-0.5">{aiSkills.models.subtitle}</p>
+                        {category.node}
+                      </span>
                     </div>
                   </div>
-
-                  <div className="flex flex-wrap gap-2.5 relative z-10">
-                    {aiSkills.models.skills.map((skill, idx) => (
-                      <motion.span
-                        key={idx}
-                        whileHover={{ 
-                          scale: 1.05,
-                          borderColor: "rgba(236, 72, 153, 0.4)",
-                          boxShadow: "0 0 15px rgba(236, 72, 153, 0.2)",
-                          backgroundColor: "rgba(236, 72, 153, 0.08)",
-                          color: "#ffffff"
-                        }}
-                        className="px-3.5 py-2 text-sm font-medium rounded-xl bg-white/5 border border-white/10 text-gray-300 cursor-default transition-all duration-300 flex items-center gap-2"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
-                        {skill}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 font-mono tracking-wider">
-                  <span>SECTOR: {aiSkills.models.sector}</span>
-                  <span className="text-pink-400/70">{aiSkills.models.node}</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Card 3: Visualization & Business Intelligence */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative group rounded-3xl p-[1px] overflow-hidden transition-all duration-500"
-            >
-              {/* Glowing animated background border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-purple via-neon-cyan to-pink-500 rounded-3xl blur opacity-20 group-hover:opacity-80 transition duration-500 group-hover:duration-200" />
-              
-              <div className="relative h-full bg-[#0B1120]/90 backdrop-blur-xl p-8 rounded-3xl border border-white/5 flex flex-col justify-between">
-                {/* Inner radial gradient light */}
-                <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-accent-purple/10 blur-3xl opacity-50 group-hover:opacity-100 group-hover:bg-accent-purple/20 transition-all duration-500 pointer-events-none" />
-
-                <div>
-                  <div className="flex items-center gap-4 mb-8 relative z-10">
-                    <div className="p-3.5 rounded-2xl bg-accent-purple/10 border border-accent-purple/30 text-accent-purple shadow-[0_0_20px_rgba(123,47,247,0.2)] group-hover:shadow-[0_0_25px_rgba(123,47,247,0.4)] transition-all duration-500">
-                      {aiSkills.visualization.icon}
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-space font-bold text-white group-hover:text-accent-purple transition-colors">
-                        {aiSkills.visualization.title}
-                      </h4>
-                      <p className="text-xs text-accent-purple/70 font-mono mt-0.5">{aiSkills.visualization.subtitle}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2.5 relative z-10">
-                    {aiSkills.visualization.skills.map((skill, idx) => (
-                      <motion.span
-                        key={idx}
-                        whileHover={{ 
-                          scale: 1.05,
-                          borderColor: "rgba(123, 47, 247, 0.4)",
-                          boxShadow: "0 0 15px rgba(123, 47, 247, 0.2)",
-                          backgroundColor: "rgba(123, 47, 247, 0.08)",
-                          color: "#ffffff"
-                        }}
-                        className="px-3.5 py-2 text-sm font-medium rounded-xl bg-white/5 border border-white/10 text-gray-300 cursor-default transition-all duration-300 flex items-center gap-2"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent-purple animate-pulse" />
-                        {skill}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 font-mono tracking-wider">
-                  <span>SECTOR: {aiSkills.visualization.sector}</span>
-                  <span className="text-accent-purple/70">{aiSkills.visualization.node}</span>
-                </div>
-              </div>
-            </motion.div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 

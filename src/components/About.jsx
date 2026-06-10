@@ -27,12 +27,12 @@ const About = () => {
             className="glass-card p-8 rounded-3xl relative overflow-hidden group"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <h3 className="text-2xl font-space font-bold mb-4 text-white">Data, AI & Web Enthusiast</h3>
+            <h3 className="text-2xl font-space font-bold mb-4 text-white">AI Engineer & Software Developer</h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Graduate of Informatics Engineering with experience in Data Analytics, Machine Learning, and Web Development, along with additional skills in document administration and productivity tools such as Excel and PowerPoint. Fast learner, adaptable, and highly motivated to grow within a company environment, with the flexibility to contribute across various roles and fields.
+              Passionate AI, Data Science, and Software Engineering enthusiast with hands-on experience in machine learning, deep learning, natural language processing, data analytics, business intelligence, and modern web development. Experienced in building intelligent systems, data-driven solutions, and scalable digital products.
             </p>
             <p className="text-gray-400 leading-relaxed">
-              I spend my time continuously learning new technologies and tools related to data and web development, participating in online courses, and contributing to small projects that strengthen my technical and analytical skills. Outside academics and work, I enjoy organizing digital assets, designing simple visuals, and exploring trends in AI and digital transformation.
+              Continuously learning new technologies and methodologies related to AI research and software architecture. Proven adaptability and strong motivation to design high-impact solutions, collaborate across multi-disciplinary teams, and contribute to cutting-edge digital transformation initiatives.
             </p>
           </motion.div>
 
@@ -40,7 +40,7 @@ const About = () => {
             {[
               { title: "Experience", value: "1+ Year", color: "from-neon-cyan" },
               { title: "Projects", value: "9+", color: "from-accent-purple" },
-              { title: "Tech Stack", value: "30+", color: "from-pink-500" },
+              { title: "Technologies & Methods", value: "60+", color: "from-pink-500" },
               { title: "Certifications", value: "18", color: "from-blue-500" }
             ].map((stat, index) => (
               <motion.div
